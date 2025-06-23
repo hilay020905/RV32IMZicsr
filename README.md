@@ -1,6 +1,6 @@
 # 🚀 DualPipe-RV32IMZicsr
 
-**DualPipe-RV32IMZicsr** is a high-performance, dual-issue, superscalar, in-order 32-bit RISC-V CPU core based on the RV32IMZicsr ISA. Designed for FPGA and ASIC implementation, configurable branch prediction, CSR handling, MMU functionality, and is fully synthesizable in Verilog-2001.
+**DualPipe-RV32IMZicsr** is a high-performance, dual-issue, superscalar, in-order 32-bit RISC-V CPU core based on the RV32IMZicsr ISA. Designed for configurable branch prediction, CSR handling, and is fully synthesizable in Verilog-2001.
 
 ---
 
@@ -17,7 +17,6 @@
 - 🧠 **Branch Prediction**:
   - Gshare or Bimodal Predictor (configurable)
   - Branch Target Buffer (BTB) + Return Address Stack (RAS)
-- 📦 **Interfaces**: AXI4 / TCM (configurable)
 
 
 ---
@@ -41,7 +40,6 @@ This project follows a **one-module-per-day** agile structure:
 | 2025-07-03 |  Day 11 | MMU                     | SV32 MMU, TLB, `satp`, exception hooks      |
 | 2025-07-04 |  Day 12 | Forwarding & Stalling   | Bypass network + inter-instr dependencies   |
 | 2025-07-05 |  Day 13 | Testbenches (Verilator) | Unit/integration tests, waveforms           |
-| 2025-07-06 |  Day 14 | Linux Boot Integration  | Load ELF, debug boot log                    |
 
 
 ---
