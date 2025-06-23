@@ -19,27 +19,6 @@
   - Branch Target Buffer (BTB) + Return Address Stack (RAS)
 - 📦 **Interfaces**: AXI4 / TCM (configurable)
 
----
-
-## 📁 Directory Structure
-DualPipe-RV32IMZicsr/
-├── src/ # RTL Modules (Verilog 2001)
-│ ├── fetch/ # Instruction Fetch and PC logic
-│ ├── decode/ # Dual-instruction decoder, reg file
-│ ├── issue/ # Hazard detection, issue arbiter
-│ ├── execute/ # ALU, branch, divider
-│ ├── memory/ # Load/Store Unit (LSU)
-│ ├── csr/ # CSR file, trap/exception logic
-│ ├── mmu/ # MMU and SV32 page translation
-│ └── top/ # Core integration logic
-├── tb/ # Testbenches (Verilator/SystemVerilog)
-├── sim/ # Build/test automation (Makefiles/scripts)
-├── fpga/ # Synthesis files for FPGA boards
-├── docs/ # Block diagrams, flowcharts, specs
-├── scripts/ # Helper scripts for sim/test
-├── PLANNING.md # Daily development schedule
-└── README.md # Project overview (this file)
-
 
 ---
 
