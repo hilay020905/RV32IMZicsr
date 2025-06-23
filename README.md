@@ -10,8 +10,6 @@
 - ⚙️ **ISA**: RV32IMZicsr (Integer, Multiply/Divide, CSR)
 - 🚀 **Performance**:
   - 2 instructions per cycle max
-  - 4.1 CoreMark/MHz
-  - 1.9 DMIPS/MHz (337 instr/iteration)
 - 🔁 **Pipeline**:
   - 64-bit instruction fetch
   - 32-bit data memory access
@@ -19,13 +17,7 @@
 - 🧠 **Branch Prediction**:
   - Gshare or Bimodal Predictor (configurable)
   - Branch Target Buffer (BTB) + Return Address Stack (RAS)
-- 🔐 **Privilege Support**: User, Supervisor, Machine
-- 💻 **MMU**: SV32 translation, Linux boot capable (atomics via emulation)
 - 📦 **Interfaces**: AXI4 / TCM (configurable)
-- ✅ **Verification**:
-  - Google RISCV-DV
-  - Co-simulation with C++ ISA model
-  - CoreMark / Dhrystone / Linux boot
 
 ---
 
