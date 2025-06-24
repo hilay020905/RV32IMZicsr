@@ -41,6 +41,7 @@
 | 2025-07-05 |  Day 13 | Testbenches (Verilator) | Unit/integration tests, waveforms           |
 
 ## DAY 1: Architecture Planning
+![Processor Architecture](IMAGES/FIG1.png)
 
 ---
 
