@@ -44,7 +44,7 @@
 ![Processor Architecture](IMAGES/FIG01.png)
 
 # Microarchitecture
-## DAY 2: NEXT PC LOGIC 
+## DAY 2: NEXT PC LOGIC (Configurable with or without branch prediction)
 
 This module evaluates the **Next Program Counter (PC) Prediction** unit for a RISC-V CPU with branch prediction support using:
 
