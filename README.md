@@ -49,17 +49,19 @@
 The Verilog code implements a branch prediction system for a processor, using a Branch Target Buffer (BTB) to store branch addresses and predict targets, a Branch History Table (BHT) with 2-bit saturating counters for taken/not-taken predictions, and a Return Address Stack (RAS) for handling call/return instructions. It supports configurable features like GShare indexing and uses an LFSR for random BTB entry allocation on misses. The system predicts the next program counter (PC) and branch outcome based on speculative and actual branch history, improving fetch stage efficiency.
 
 
-| **Signal**              | **Description**                               | **Key Transitions and Values**                                                                                     | **Observations**                                                      |
-| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| `invalidate_i`          | Invalidates predictions                       | Brief high pulse \~170–180 ns (Test Case 8)                                                                        | Temporary assertion; no visible impact on outputs.                    |
-| `branch_request_i`      | Branch resolution event                       | High pulses at \~50–60 ns, \~90–100 ns, \~110–120 ns, \~130–140 ns, \~150–160 ns, \~190–200 ns                     | Corresponds to Test Cases 2, 4, 5, 6, 7, and 9 (branch events).       |
-| `branch_is_taken_i`     | Branch was taken                              | High at \~50–60 ns (Test Case 2), \~190–200 ns (first branch of Test Case 9)                                       | Indicates taken branches.                                             |
-| `branch_is_not_taken_i` | Branch was not taken                          | High at \~130–140 ns (Test Case 6), \~190–200 ns (second branch of Test Case 9)                                    | Indicates not-taken branches.                                         |
-| `branch_is_call_i`      | CALL instruction detected                     | High at \~90–100 ns (Test Case 4)                                                                                  | Indicates subroutine CALL (push return address to RAS).               |
-| `branch_is_ret_i`       | RETURN instruction detected                   | High at \~110–120 ns (Test Case 5)                                                                                 | Indicates subroutine RETURN (pop address from RAS).                   |
-| `branch_is_jmp_i`       | JUMP instruction detected                     | High at \~150–160 ns (Test Case 7)                                                                                 | Indicates unconditional JUMP.                                         |
-| `next_pc_f_o[31:0]`     | Predicted next PC                             | `00001008` (\~30–50 ns, Test Case 1), `00002000` (\~70–90 ns, Test Case 3), `00001014` (\~110–130 ns, Test Case 5) | Changes reflect PC+8 (sequential), BTB hit, or RAS-based predictions. |
-| `next_taken_f_o[1:0]`   | Prediction result: 00 (not taken), 01 (taken) | 00 (\~30–50 ns), 01 (\~70–90 ns, Test Case 3), 01 (\~110–130 ns, Test Case 5)                                      | "00" = default linear flow, "01" = predicted-taken from BTB or RAS.   |
+| Test Case | Inputs Activated                                                 | Output PC (`next_pc_f_o`) | Prediction (`next_taken_f_o`) | Explanation                                                |
+| --------- | ---------------------------------------------------------------- | ------------------------- | ----------------------------- | ---------------------------------------------------------- |
+| 1         | None                                                             | `00001008`                | `00`                          | Sequential fetch (`pc + 8`), no BTB prediction.            |
+| 2         | `branch_request_i`, `branch_is_taken_i`                          | BTB gets updated          | —                             | Real branch taken, updates BTB for next predictions.       |
+| 3         | `pc_accept_i`                                                    | `00002000`                | `01`                          | BTB predicts branch from Test 2, correct prediction.       |
+| 4         | `branch_request_i`, `branch_is_call_i`                           | Updates RAS               | —                             | Function call, pushes return address to RAS.               |
+| 5         | `branch_request_i`, `branch_is_ret_i`                            | `00001014`                | `01`                          | Return predicted using RAS stack (correctly).              |
+| 6         | `branch_request_i`, `branch_is_not_taken_i`                      | Updates BHT               | —                             | Not-taken branch trains BHT to avoid future mispredict.    |
+| 7         | `branch_request_i`, `branch_is_jmp_i`                            | Updates BTB               | `01`                          | Jump instruction predicted by BTB.                         |
+| 8         | `invalidate_i` pulse                                             | —                         | —                             | Prediction structures invalidated; no visible change.      |
+| 9         | `branch_request_i`, `branch_is_taken_i`, `branch_is_not_taken_i` | `00002000`                | `01`                          | Simulates dual branch behavior (both taken and not taken). |
+| 10        | None                                                             | —                         | —                             | Idle, no new input activity.                               |
+
 
 ![TESTBENCHES](IMAGES/FIG02.png)
 
