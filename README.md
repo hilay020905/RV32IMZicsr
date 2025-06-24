@@ -1,5 +1,6 @@
 # 🚀 DualPipe-RV32IMZicsr
 **PREVIOUS**: https://github.com/hilay020905/RISC_V_CORE
+
 **DualPipe-RV32IMZicsr** is a high-performance, dual-issue, superscalar, in-order 32-bit RISC-V CPU core based on the RV32IMZicsr ISA. Designed for configurable branch prediction, CSR handling, and is fully synthesizable in Verilog-2001.
 
 ---
@@ -39,6 +40,7 @@
 | 2025-07-04 |  Day 12 | Forwarding & Stalling   | Bypass network + inter-instr dependencies   |
 | 2025-07-05 |  Day 13 | Testbenches (Verilator) | Unit/integration tests, waveforms           |
 
+## DAY 1: Architecture Planning
 
 ---
 
