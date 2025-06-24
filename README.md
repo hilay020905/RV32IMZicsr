@@ -22,7 +22,7 @@
 
 ---
 
-## 📅 2-Week Development Plan
+# 📅 2-Week Development Plan
 
 | **Date**   | **Day** | **Module / Task**       | 
 | ---------- | ------: | ----------------------- | 
@@ -43,10 +43,21 @@
 ## DAY 1: Architecture Planning
 ![Processor Architecture](IMAGES/FIG01.png)
 
----
 # Microarchitecture
 ## DAY 2: NEXT PC LOGIC 
-The Verilog code implements a branch prediction system for a processor, using a Branch Target Buffer (BTB) to store branch addresses and predict targets, a Branch History Table (BHT) with 2-bit saturating counters for taken/not-taken predictions, and a Return Address Stack (RAS) for handling call/return instructions. It supports configurable features like GShare indexing and uses an LFSR for random BTB entry allocation on misses. The system predicts the next program counter (PC) and branch outcome based on speculative and actual branch history, improving fetch stage efficiency.
+
+This module evaluates the **Next Program Counter (PC) Prediction** unit for a RISC-V CPU with branch prediction support using:
+
+- **BTB** (Branch Target Buffer)
+➤ Remembers where a branch instruction goes (target address).
+➤ Used to predict the destination of jumps, calls, and branches.
+- **BHT** (Branch History Table)
+➤ Predicts whether a branch is taken or not taken.
+➤ Uses past behavior to guide future predictions.
+- **RAS** (Return Address Stack)
+➤ Predicts return addresses for function returns (ret).
+➤ Stores return PCs from call instructions in a stack-like structure.
+
 
 
 | Test Case | Inputs Activated                                                 | Output PC (`next_pc_f_o`) | Prediction (`next_taken_f_o`) | Explanation                                                |
