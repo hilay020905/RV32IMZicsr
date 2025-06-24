@@ -23,8 +23,6 @@
 
 ## 📅 2-Week Development Plan
 
-This project follows a **one-module-per-day** agile structure:
-
 | **Date**   | **Day** | **Module / Task**       | **Description**                             |
 | ---------- | ------: | ----------------------- | ------------------------------------------- |
 | 2025-06-23 |   Day 1 | Architecture Planning   | Define pipeline layout, datapaths           |
