@@ -7,7 +7,7 @@
 
 ## 🧠 Project Overview
 
-- 🧮 **Architecture**: Dual-issue, 6/7-stage in-order pipeline
+- 🧮 **Architecture**: Dual-issue, 7-stage in-order pipeline
 - ⚙️ **ISA**: RV32IMZicsr (Integer, Multiply/Divide, CSR)
 - 🚀 **Performance**:
   - 2 instructions per cycle max
