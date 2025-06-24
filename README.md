@@ -48,15 +48,9 @@
 
 This module evaluates the **Next Program Counter (PC) Prediction** unit for a RISC-V CPU with branch prediction support using:
 
-- **BTB** (Branch Target Buffer)
--  Remembers where a branch instruction goes (target address).
--  Used to predict the destination of jumps, calls, and branches.
-- **BHT** (Branch History Table)
--  Predicts whether a branch is taken or not taken.
--  Uses past behavior to guide future predictions.
-- **RAS** (Return Address Stack)
--  Predicts return addresses for function returns (ret).
--  Stores return PCs from call instructions in a stack-like structure.
+- **BTB** (Branch Target Buffer) Remembers where a branch instruction goes (target address). Used to predict the destination of jumps, calls, and branches.
+- **BHT** (Branch History Table) Predicts whether a branch is taken or not taken. Uses past behavior to guide future predictions.
+- **RAS** (Return Address Stack) Predicts return addresses for function returns (ret). Stores return PCs from call instructions in a stack-like structure.
 
 
 
