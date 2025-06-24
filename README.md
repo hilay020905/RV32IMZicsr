@@ -61,7 +61,7 @@ The Verilog code implements a branch prediction system for a processor, using a 
 | `next_pc_f_o[31:0]`     | Predicted next PC                             | `00001008` (\~30–50 ns, Test Case 1), `00002000` (\~70–90 ns, Test Case 3), `00001014` (\~110–130 ns, Test Case 5) | Changes reflect PC+8 (sequential), BTB hit, or RAS-based predictions. |
 | `next_taken_f_o[1:0]`   | Prediction result: 00 (not taken), 01 (taken) | 00 (\~30–50 ns), 01 (\~70–90 ns, Test Case 3), 01 (\~110–130 ns, Test Case 5)                                      | "00" = default linear flow, "01" = predicted-taken from BTB or RAS.   |
 
-![TESTBENCHES](IMAGES/FIG2.png)
+![TESTBENCHES](IMAGES/FIG02.png)
 
 ### 🔧 Prerequisites
 - iVerilog
