@@ -75,28 +75,28 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 
 ![FETCH UNIT](IMAGES/FIG03.jpg)
 
-| **Group**           | **Signal Name**            | **Purpose / Notes**                                 | **Test Cases** |
-| ------------------- | -------------------------- | --------------------------------------------------- | -------------- |
-| ⏱️ Clock & Reset    | `clk_i`                    | Main system clock (10ns period)                     | All            |
-|                     | `rst_i`                    | Active-high reset signal                            | All            |
-| ▶️ Input Control    | `fetch_accept_i`           | Downstream fetch unit ready                         | 3, 5           |
-|                     | `icache_accept_i`          | Instruction cache accepts read request              | 3              |
-|                     | `icache_valid_i`           | Valid instruction data from cache                   | 1, 2, 3, 5, 6  |
-|                     | `branch_request_i`         | Trigger branch fetch                                | 2              |
-|                     | `fetch_invalidate_i`       | Invalidate fetch (for flushes)                      | 4              |
-|                     | `icache_error_i`           | Cache returned error                                | 6              |
-|                     | `icache_page_fault_i`      | Cache reported page fault                           | 6              |
-| ✅ Output           | `fetch_valid_o`            | Instruction output is valid                         | 1, 2, 3, 5, 6  |
-|                     | `fetch_pred_branch_o[1:0]` | Predicted branch decision                           | 1              |
-|                     | `fetch_fault_fetch_o`      | Fetch fault (e.g., alignment)                       | 6              |
-|                     | `fetch_fault_page_o`       | Page fault occurred during fetch                    | 6              |
-|                     | `icache_priv_o[1:0]`       | Privilege level sent to I-cache                     | 2 (MMU mode)   |
-| 🧠 Internal Signals | `active_q`                 | Indicates if fetch stage is active                  | 1, 2, 3, 5     |
-|                     | `branch_q`                 | Branch state active                                 | 2              |
-|                     | `stall_q`                  | Indicates if fetch stage is stalled                 | 3              |
-|                     | `skid_valid_q`             | Skid buffer has valid data                          | 5              |
+| **Group**           | **Signal Name**            | **Purpose / Notes**                                 | 
+| ------------------- | -------------------------- | --------------------------------------------------- | 
+| ⏱️ Clock & Reset    | `clk_i`                    | Main system clock (10ns period)                     | 
+|                     | `rst_i`                    | Active-high reset signal                            | 
+| ▶️ Input Control    | `fetch_accept_i`           | Downstream fetch unit ready                         | 
+|                     | `icache_accept_i`          | Instruction cache accepts read request              | 
+|                     | `icache_valid_i`           | Valid instruction data from cache                   | 
+|                     | `branch_request_i`         | Trigger branch fetch                                | 
+|                     | `fetch_invalidate_i`       | Invalidate fetch (for flushes)                      | 
+|                     | `icache_error_i`           | Cache returned error                                | 
+|                     | `icache_page_fault_i`      | Cache reported page fault                           | 
+| ✅ Output           | `fetch_valid_o`            | Instruction output is valid                         | 
+|                     | `fetch_pred_branch_o[1:0]` | Predicted branch decision                           | 
+|                     | `fetch_fault_fetch_o`      | Fetch fault (e.g., alignment)                       | 
+|                     | `fetch_fault_page_o`       | Page fault occurred during fetch                    | 
+|                     | `icache_priv_o[1:0]`       | Privilege level sent to I-cache                     | 
+| 🧠 Internal Signals | `active_q`                 | Indicates if fetch stage is active                  |
+|                     | `branch_q`                 | Branch state active                                 | 
+|                     | `stall_q`                  | Indicates if fetch stage is stalled                 | 
+|                     | `skid_valid_q`             | Skid buffer has valid data                          | 
 
-![TESTBENCHES](IMAGES/FIG02.png)
+![TESTBENCHES](IMAGES/FIG04.png)
 
 ### 🔧 Prerequisites
 - iVerilog
