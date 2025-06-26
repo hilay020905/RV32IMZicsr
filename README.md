@@ -71,7 +71,7 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 ![TESTBENCHES](IMAGES/FIG02.png)
 
 ## DAY 3: Instruction fetch
-The FETCH module implements the instruction fetch stage of a RISC-V processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
+The FETCH module implements the instruction fetch stage of a processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
 
 ![TESTBENCHES](IMAGES/FIG02.png)
 | **Group**           | **Signal Name**            | **Purpose / Notes**                                 | **Test Cases** |
@@ -114,6 +114,7 @@ The FETCH module implements the instruction fetch stage of a RISC-V processor, h
 |                     | `pc_f_q[31:0]`             | Registered fetch PC                                 | 1, 2, 3, 5, 6  |
 |                     | `pc_d_q[31:0]`             | Previous instruction PC                             | 1, 2, 3, 5, 6  |
 |                     | `pred_d_q[1:0]`            | Predicted branch outcome                            | 1              |
+
 ![TESTBENCHES](IMAGES/FIG02.png)
 
 ### 🔧 Prerequisites
