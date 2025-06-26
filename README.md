@@ -73,7 +73,7 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 ## DAY 3: Instruction fetch
 The FETCH module implements the instruction fetch stage of a processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
 
-![FETCH UNIT](IMAGES/FIG03.png)
+![FETCH UNIT](IMAGES/FIG03.jpg)
 
 | **Group**           | **Signal Name**            | **Purpose / Notes**                                 | **Test Cases** |
 | ------------------- | -------------------------- | --------------------------------------------------- | -------------- |
