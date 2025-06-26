@@ -29,7 +29,7 @@
 | 2025-06-23 |   Day 1 | Architecture Planning   | 
 | 2025-06-24 |   Day 2 | NEXT PC Logic           | 
 | 2025-06-25 |   Day 3 | Fetch unit              | 
-| 2025-06-26 |   Day 4 | Decode + Register File  | 
+| 2025-06-26 |   Day 4 | Decode unit             | 
 | 2025-06-27 |   Day 5 | Issue Unit              |
 | 2025-06-28 |   Day 6 | ALUs (x2)               |
 | 2025-06-29 |   Day 7 | Branch + Predictor      | 
@@ -67,7 +67,7 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 | 9         | `branch_request_i`, `branch_is_taken_i`, `branch_is_not_taken_i` | `00002000`                | `01`                          | Simulates dual branch behavior (both taken and not taken). |
 | 10        | None                                                             | `00002000`                | `01`                          | Idle, no new input activity.                               |
 
-## DAY 3: Instruction fetch
+## DAY 3: Fetch unit
 The FETCH module implements the instruction fetch stage of a processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
 
 ![FETCH UNIT](IMAGES/FIG03.jpg)
@@ -94,6 +94,9 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 |                     | `skid_valid_q`             | Skid buffer has valid data                          | 
 
 ![TESTBENCHES](IMAGES/FIG04.png)
+
+## DAY 4: Decode unit
+![Processor Architecture](IMAGES/FIG05.png)
 
 ### 🔧 Prerequisites
 - iVerilog
