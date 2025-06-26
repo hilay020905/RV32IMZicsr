@@ -52,7 +52,7 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 - **BHT** (Branch History Table) Predicts whether a branch is taken or not taken. Uses past behavior to guide future predictions.
 - **RAS** (Return Address Stack) Predicts return addresses for function returns (ret). Stores return PCs from call instructions in a stack-like structure.
 
-
+![TESTBENCHES](IMAGES/FIG02.png)
 
 | Test Case | Inputs Activated                                                 | Output PC (`next_pc_f_o`) | Prediction (`next_taken_f_o`) | Explanation                                                |
 | --------- | ---------------------------------------------------------------- | ------------------------- | ----------------------------- | ---------------------------------------------------------- |
@@ -66,9 +66,6 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 | 8         | `invalidate_i` pulse                                             | `00002000`                | `01`                          | Prediction structures invalidated; no visible change.      |
 | 9         | `branch_request_i`, `branch_is_taken_i`, `branch_is_not_taken_i` | `00002000`                | `01`                          | Simulates dual branch behavior (both taken and not taken). |
 | 10        | None                                                             | `00002000`                | `01`                          | Idle, no new input activity.                               |
-
-
-![TESTBENCHES](IMAGES/FIG02.png)
 
 ## DAY 3: Instruction fetch
 The FETCH module implements the instruction fetch stage of a processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
