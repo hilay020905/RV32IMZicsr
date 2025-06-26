@@ -96,7 +96,7 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 ![TESTBENCHES](IMAGES/FIG04.png)
 
 ## DAY 4: Decode unit
-![Processor Architecture](IMAGES/FIG05.png)
+![Processor Architecture](IMAGES/FIG05.jpg)
 
 ### 🔧 Prerequisites
 - iVerilog
