@@ -40,11 +40,11 @@
 | 2025-07-04 |  Day 12 | Forwarding & Stalling   | 
 | 2025-07-05 |  Day 13 | Testbenches (Verilator) | 
 
-## DAY 1: Architecture Planning
+## Architecture Planning
 ![Processor Architecture](IMAGES/FIG01.png)
 
 # Microarchitecture
-## DAY 2: NEXT PC LOGIC (Configurable with or without branch prediction)
+## NEXT PC LOGIC (Configurable with or without branch prediction)
 
 This module evaluates the **Next Program Counter (PC) Prediction** unit for a RISC-V CPU with branch prediction support using:
 
@@ -67,7 +67,7 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 | 9         | `branch_request_i`, `branch_is_taken_i`, `branch_is_not_taken_i` | `00002000`                | `01`                          | Simulates dual branch behavior (both taken and not taken). |
 | 10        | None                                                             | `00002000`                | `01`                          | Idle, no new input activity.                               |
 
-## DAY 3: Fetch unit
+## Fetch unit
 The FETCH module implements the instruction fetch stage of a processor, handling program counter management, branch requests, and instruction cache interactions. It supports optional MMU functionality and manages stalls, faults, and backpressure using a skid buffer.
 
 ![FETCH UNIT](IMAGES/FIG03.jpg)
@@ -95,7 +95,7 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 
 ![TESTBENCHES](IMAGES/FIG04.png)
 
-## DAY 4: Decode unit
+## Decode unit
 ![Processor Architecture](IMAGES/FIG05.jpg)
 
 ### 🔧 Prerequisites
