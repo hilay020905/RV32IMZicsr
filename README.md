@@ -96,7 +96,68 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 ![TESTBENCHES](IMAGES/FIG04.png)
 
 ## Decode unit
+
 ![Processor Architecture](IMAGES/FIG05.jpg)
+
+| **Signal Name**               | **Role**                         | **Importance for Analysis**                                                            |
+| ----------------------------- | -------------------------------- | -------------------------------------------------------------------------------------- |
+| `fetch_in_valid_i`            | Input Control - Input Valid      | High when instruction pair is valid (e.g., 20 ns, 50 ns); initiates FIFO push.         |
+| `fetch_in_accept_o`           | Output Control - Input Accept    | High when FIFO can accept new instructions; confirms buffer availability.              |
+| `fetch_out0_valid_o`          | Output Control - Channel 0 Valid | High when channel 0 has a valid instruction (e.g., \~30 ns); signals downstream stage. |
+| `fetch_out1_valid_o`          | Output Control - Channel 1 Valid | High when channel 1 has a valid instruction; important for dual-issue pipelines.       |
+| `fetch_out0_accept_i`         | Input Control - Channel 0 Accept | High when downstream logic consumes channel 0 instruction; affects FIFO pop.           |
+| `fetch_out1_accept_i`         | Input Control - Channel 1 Accept | High when downstream logic consumes channel 1 instruction.                             |
+| `fetch_in_instr_i[63:0]`      | Input - Instruction Pair         | Contains 2x32-bit instructions; analyzed to verify opcodes (e.g., `LW`, `ADDI`).       |
+| `fetch_in_pc_i[31:0]`         | Input - Program Counter          | Aligned base PC (e.g., `0x1000`); helps validate correct PC tracking.                  |
+| `fetch_in_pred_branch_i[1:0]` | Input - Predicted Branch         | Indicates expected control flow path (affects output channel validity).                |
+| `fetch_in_fault_fetch_i`      | Input - Fetch Fault              | High triggers fault handling logic (e.g., Test 5); propagates to CSR/fault status.     |
+| `fetch_in_fault_page_i`       | Input - Page Fault               | Monitors memory page access errors; reserved for fault management.                     |
+| `branch_request_i`            | Input - Branch Request           | High flushes the FIFO (e.g., at 170 ns in Test 6); ensures pipeline redirection.       |
+| `branch_pc_i[31:0]`           | Input - Branch PC                | New target address on branch (e.g., `0x2000`); used to restart fetch.                  |
+| `branch_priv_i[1:0]`          | Input - Branch Privilege         | Indicates privilege level (e.g., machine mode); required for CSR/memory access.        |
+
+🔀 Output: Channel 0
+| **Signal**                    | **Role**             | **Importance**                                              |
+| ----------------------------- | -------------------- | ----------------------------------------------------------- |
+| `fetch_out0_instr_o[31:0]`    | Instruction          | Contains decoded instruction (e.g., `0x00100093` = `ADDI`). |
+| `fetch_out0_pc_o[31:0]`       | Program Counter      | PC of channel 0 instruction (e.g., `0x1000`).               |
+| `fetch_out0_instr_exec_o`     | ALU Operation        | High for arithmetic/logic ops (e.g., `ADDI`).               |
+| `fetch_out0_instr_lsu_o`      | Load/Store Operation | High for memory ops (e.g., `LW`).                           |
+| `fetch_out0_instr_branch_o`   | Branch Operation     | High if instruction is `JAL`, `BEQ`, etc.                   |
+| `fetch_out0_instr_mul_o`      | Multiplication       | High when `MUL` detected (Test 3).                          |
+| `fetch_out0_instr_div_o`      | Division             | High if `DIV` detected (monitored only).                    |
+| `fetch_out0_instr_csr_o`      | CSR/System Operation | High for `CSRRW`, `CSRRS`, or fault-based system ops.       |
+| `fetch_out0_instr_rd_valid_o` | Register Write       | High if instruction writes to `rd` (e.g., `ADDI`, `JAL`).   |
+| `fetch_out0_instr_invalid_o`  | Invalid Instruction  | High for illegal encodings (e.g., `0xFFFFFFFF` in Test 4).  |
+| `fetch_out0_fault_fetch_o`    | Fetch Fault          | Indicates instruction fetch fault propagated.               |
+| `fetch_out0_fault_page_o`     | Page Fault           | Page-level fault status (monitored only).                   |
+
+🔀 Output: Channel 1
+| **Signal**                    | **Role**             | **Importance**                                   |
+| ----------------------------- | -------------------- | ------------------------------------------------ |
+| `fetch_out1_instr_o[31:0]`    | Instruction          | Decoded instruction (e.g., `0x00020083` = `LW`). |
+| `fetch_out1_pc_o[31:0]`       | Program Counter      | PC of channel 1 instruction (e.g., `0x1004`).    |
+| `fetch_out1_instr_exec_o`     | ALU Operation        | ALU instruction decoder flag (e.g., `ADDI`).     |
+| `fetch_out1_instr_lsu_o`      | Load/Store Operation | High for `LW`, `SW`, etc.                        |
+| `fetch_out1_instr_branch_o`   | Branch Operation     | High if branch (`BEQ`) present.                  |
+| `fetch_out1_instr_mul_o`      | Multiplication       | Monitored (not tested).                          |
+| `fetch_out1_instr_div_o`      | Division             | Monitored (not tested).                          |
+| `fetch_out1_instr_csr_o`      | CSR/System Operation | High on `CSR` instructions or faults.            |
+| `fetch_out1_instr_rd_valid_o` | Register Write       | High if `rd` is written.                         |
+| `fetch_out1_instr_invalid_o`  | Invalid Instruction  | Illegal opcodes (if present).                    |
+| `fetch_out1_fault_fetch_o`    | Fetch Fault          | Fault detected on fetch for channel 1.           |
+| `fetch_out1_fault_page_o`     | Page Fault           | Memory page fault flag (monitored).              |
+
+The testbench (DECODE_TB.v) includes six test cases designed to verify different aspects of the DECODE module:
+
+Test 1: Valid instructions (ADDI and LW) to check arithmetic and load/store decoding.
+Test 2: Branch instruction (JAL) with a predicted branch to verify branch handling.
+Test 3: MUL instruction with SUPPORT_MULDIV enabled to test multiplication decoding.
+Test 4: Invalid instruction to verify invalid instruction detection.
+Test 5: Fetch fault to check fault handling.
+Test 6: Branch request followed by CSRRW and BEQ instructions to test pipeline flush and CSR/branch decoding.
+
+
 
 ### 🔧 Prerequisites
 - iVerilog
