@@ -209,7 +209,7 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 | **6**: Store Halfword (SH) - Aligned       | Store halfword to aligned address             | Verify data and halfword mask                      | `opcode_valid_i=1`, `opcode_opcode_i=INST_SH (0x1023)`, `opcode_ra_operand_i=0x6000`, `opcode_rb_operand_i=0x0000BEEF`, `mem_ack_i=1 (after 10ns)`                                         | `mem_addr_o=0x6000`, `mem_data_wr_o=0x0000BEEF`, `mem_wr_o=4'b0011`, `writeback_valid_o=1`, `writeback_exception_o=0x0`, `stall_o=0`                                                     |
 | **7**: DCache Invalidate                  | CSRRW with CSR_DINVALIDATE                   | Trigger DCache invalidate signal                   | `opcode_valid_i=1`, `opcode_opcode_i=(CSR_DINVALIDATE<<20)=0x3a21073`, `opcode_ra_operand_i=0x7000`, `mem_ack_i=1 (after 10ns)`                                                            | `mem_invalidate_o=1`, `mem_cacheable_o=1`, `writeback_valid_o=1`, `writeback_exception_o=0x0`                                                                                            |
 
-
+![TESTBENCHES](IMAGES/FIG10.png)
 
 ## Issue unit
 
