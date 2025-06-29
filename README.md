@@ -183,6 +183,20 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ## ALU DIV MUL
 
+| Operation               | Inputs                                                 | Expected Result                          | Actual Result                  | Notes                                                     |
+| ----------------------- | ------------------------------------------------------ | ---------------------------------------- | ------------------------------ | --------------------------------------------------------- |
+| ADD (`ALU_ADD`)         | `alu_a_i = 0xA (10)`, `alu_b_i = 0x5 (5)`              | `alu_p_o = 0xF (15)`                     | `alu_p_o = 0xF`                | Addition: 10 + 5 = 15                                     |
+| SUB (`ALU_SUB`)         | `alu_a_i = 0xA (10)`, `alu_b_i = 0x5 (5)`              | `alu_p_o = 0x5 (5)`                      | `alu_p_o = 0x5`                | Subtraction: 10 - 5 = 5                                   |
+| SHIFTL (`ALU_SHIFTL`)   | `alu_a_i = 0x1 (1)`, `alu_b_i = 0x2 (2)`               | `alu_p_o = 0x4 (4)`                      | `alu_p_o = 0x4`                | Left shift: 1 << 2 = 4                                    |
+| SHIFTR\_ARITH           | `alu_a_i = 0x80000000 (-2³¹)`, `alu_b_i = 0x1 (1)`     | `alu_p_o = 0xC0000000 (-2³⁰)`            | `alu_p_o = 0xC0000000`         | Arithmetic right shift: -2³¹ >> 1 = -2³⁰                  |
+| AND (`ALU_AND`)         | `alu_a_i = 0xFF (255)`, `alu_b_i = 0xF (15)`           | `alu_p_o = 0xF (15)`                     | `alu_p_o = 0xF`                | Bitwise AND: 255 & 15 = 15                                |
+| LT\_SIGNED (`ALU_LT_S`) | `alu_a_i = 0xFFFFFFFE (-2)`, `alu_b_i = 0x1 (1)`       | `alu_p_o = 0x1 (1)`                      | `alu_p_o = 0x1`                | Signed comparison: -2 < 1 → 1                             |
+| MUL (`INST_MUL`)        | `opcode_ra = 0xA (10)`, `opcode_rb = 0x3 (3)`          | `writeback_value = 0x1E (30)`            | `writeback_value = 0x1E`       | Multiplication: 10 × 3 = 30 (3 cycles ≈ 30 ns)            |
+| MULH (`INST_MULH`)      | `opcode_ra = 0x80000000 (-2³¹)`, `opcode_rb = 0x2 (2)` | `writeback_value = 0xFFFFFFFF (-1)`      | `writeback_value = 0xFFFFFFFF` | High 32 bits of signed mult: (-2³¹) × 2 = 0x1\_0000\_0000 |
+
+![TESTBENCHES](IMAGES/FIG08.png)
+
+![TESTBENCHES](IMAGES/FIG09.png)
 
 ## Issue unit
 
