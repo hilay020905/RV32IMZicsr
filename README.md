@@ -184,6 +184,8 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ## Issue unit
 
+![TESTBENCHES](IMAGES/FIG07.png)
+
 ### 🔧 Prerequisites
 - iVerilog
 - GTKWave
