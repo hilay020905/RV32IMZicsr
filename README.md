@@ -195,9 +195,6 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 | MULH (`INST_MULH`)      | `opcode_ra = 0x80000000 (-2³¹)`, `opcode_rb = 0x2 (2)` | `writeback_value = 0xFFFFFFFF (-1)`      | `writeback_value = 0xFFFFFFFF` | High 32 bits of signed mult: (-2³¹) × 2 = 0x1\_0000\_0000 |
 
 ![TESTBENCHES](IMAGES/FIG08.png)
-
----
-
 ![TESTBENCHES](IMAGES/FIG09.png)
 
 ## Issue unit
