@@ -27,9 +27,9 @@
 | **Date**   | **Day** | **Module / Task**       | 
 | ---------- | ------: | ----------------------- | 
 | 2025-06-23 |   Day 1 | Architecture Planning   | 
-| 2025-06-24 |   Day 2 | NEXT PC Logic           | 
+| 2025-06-24 |   Day 2 | Next PC Logic           | 
 | 2025-06-25 |   Day 3 | Fetch unit              | 
-| 2025-06-26 |   Day 4 | Decode unit             | 
+| 2025-06-26 |   Day 4 | Decode unit + Decoder   | 
 | 2025-06-27 |   Day 5 | Issue Unit              |
 | 2025-06-28 |   Day 6 | ALUs (x2)               |
 | 2025-06-29 |   Day 7 | Branch + Predictor      | 
