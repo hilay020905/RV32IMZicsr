@@ -180,8 +180,7 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
    - Sequence: `branch_request_i`, then `CSRRW` and `BEQ`
    - ✅ Tests pipeline flush behavior, CSR, and branch decode after redirection.
 
----
-
+![TESTBENCHES](IMAGES/FIG06.png)
 
 
 ### 🔧 Prerequisites
