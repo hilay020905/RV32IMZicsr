@@ -52,7 +52,10 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 - **BHT** (Branch History Table) Predicts whether a branch is taken or not taken. Uses past behavior to guide future predictions.
 - **RAS** (Return Address Stack) Predicts return addresses for function returns (ret). Stores return PCs from call instructions in a stack-like structure.
 
-![TESTBENCHES](IMAGES/FIG02.png)
+![TESTBENCHES](IMAGES/FIG02(A).png)
+
+![TESTBENCHES](IMAGES/FIG02(B).png)
+
 
 | Test Case | Inputs Activated                                                 | Output PC (`next_pc_f_o`) | Prediction (`next_taken_f_o`) | Explanation                                                |
 | --------- | ---------------------------------------------------------------- | ------------------------- | ----------------------------- | ---------------------------------------------------------- |
