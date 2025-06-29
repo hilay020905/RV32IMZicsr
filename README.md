@@ -53,7 +53,6 @@ This module evaluates the **Next Program Counter (PC) Prediction** unit for a RI
 - **RAS** (Return Address Stack) Predicts return addresses for function returns (ret). Stores return PCs from call instructions in a stack-like structure.
 
 ![TESTBENCHES](IMAGES/FIG02(A).png)
-
 ![TESTBENCHES](IMAGES/FIG02(B).png)
 
 
