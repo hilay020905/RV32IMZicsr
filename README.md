@@ -151,14 +151,36 @@ The FETCH module implements the instruction fetch stage of a processor, handling
 | `fetch_out1_fault_fetch_o`    | Fetch Fault          | Fault detected on fetch for channel 1.           |
 | `fetch_out1_fault_page_o`     | Page Fault           | Memory page fault flag (monitored).              |
 
-The testbench (DECODE_TB.v) includes six test cases designed to verify different aspects of the DECODE module:
 
-Test 1: Valid instructions (ADDI and LW) to check arithmetic and load/store decoding.
-Test 2: Branch instruction (JAL) with a predicted branch to verify branch handling.
-Test 3: MUL instruction with SUPPORT_MULDIV enabled to test multiplication decoding.
-Test 4: Invalid instruction to verify invalid instruction detection.
-Test 5: Fetch fault to check fault handling.
-Test 6: Branch request followed by CSRRW and BEQ instructions to test pipeline flush and CSR/branch decoding.
+The testbench includes **six unit tests**, each targeting specific decode logic behavior:
+
+### ✅ Test Cases:
+
+1. **Test 1 – Valid Instructions**
+   - Inputs: `ADDI` and `LW`
+   - ✅ Tests ALU and load/store decoding logic.
+
+2. **Test 2 – Branch Instruction with Prediction**
+   - Input: `JAL` with predicted branch
+   - ✅ Tests branch decoding and prediction path handling.
+
+3. **Test 3 – Multiply Instruction**
+   - Input: `MUL` (requires `SUPPORT_MULDIV = 1`)
+   - ✅ Validates MULDIV instruction decoding.
+
+4. **Test 4 – Invalid Instruction**
+   - Input: `0xFFFFFFFF`
+   - ✅ Detects illegal instructions; sets invalid flag.
+
+5. **Test 5 – Fetch Fault**
+   - Condition: `fetch_fault` set high
+   - ✅ Verifies fault handling and propagation logic.
+
+6. **Test 6 – Branch Flush & CSR**
+   - Sequence: `branch_request_i`, then `CSRRW` and `BEQ`
+   - ✅ Tests pipeline flush behavior, CSR, and branch decode after redirection.
+
+---
 
 
 
