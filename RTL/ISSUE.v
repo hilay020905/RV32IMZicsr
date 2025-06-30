@@ -1,5 +1,5 @@
 //HILAY_PATEL
-module biriscv_issue
+module ISSUE
 #(
      parameter SUPPORT_MULDIV   = 1
     ,parameter SUPPORT_DUAL_ISSUE = 1
