@@ -33,7 +33,7 @@
 | 2025-06-27 |   Day 5 | ALU DIV MUL             |
 | 2025-06-28 |   Day 6 | LSU                     |
 | 2025-06-29 |   Day 7 | Issue unit + Pipe ctrl  | 
-| 2025-06-30 |   Day 8 | Branch + predictor      | 
+| 2025-06-30 |   Day 8 | Execute unit            | 
 | 2025-07-01 |   Day 9 | L1 CACHE                | 
 | 2025-07-02 |  Day 10 | CSR Unit                | 
 | 2025-07-03 |  Day 11 | MMU                     | 
