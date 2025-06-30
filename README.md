@@ -270,7 +270,7 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ![TESTBENCHES](IMAGES/FIG11.jpg)
 
-![TESTBENCHES](IMAGES/FIG12.png)
+![TESTBENCHES](IMAGES/FIG13.png)
 
 ### 🔧 Prerequisites
 - iVerilog
