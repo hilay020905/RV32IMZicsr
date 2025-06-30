@@ -216,14 +216,8 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ![TESTBENCHES](IMAGES/FIG07.jpg)
 
-# 📊 Signal Analysis Summary
-
-This README documents important signals involved in the instruction execution pipeline, their descriptions, and their relevance across multiple test cases for debugging and verification.
-
 | **Signal Category** | **Signal Name**             | **Description**                                                                 |
 |---------------------|-----------------------------|---------------------------------------------------------------------------------|
-| Clock and Reset     | clk_i                       | System clock (100 MHz, 10 ns period)                                           |
-|                     | rst_i                       | Active-high reset signal                                                       |
 | Fetch Stage         | fetch0_valid_i              | Indicates valid instruction in fetch0 stage                                    |
 |                     | fetch0_instr_i              | Instruction data for fetch0                                                    |
 |                     | fetch0_pc_i                 | Program counter for fetch0 instruction                                         |
@@ -267,7 +261,7 @@ This README documents important signals involved in the instruction execution pi
 | TRACE_SIM           | dut.dbg_inst_str            | Decoded instruction string (ASCII)                                             |
 |                     | dut.dbg_inst_ra             | Source register A value                                                        |
 |                     | dut.dbg_inst_rd             | Destination register value                                                     |
-| Register File       | dut.register_file_inst.rf[0:31] | Register file contents (x0 to x31)                                           |
+| Register File       | dut.register_file_inst.rf[0:31] | Register file contents (x0 to x31)                                         |
 
 
 ![TESTBENCHES](IMAGES/FIG12.png)
