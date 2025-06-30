@@ -216,7 +216,7 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ![TESTBENCHES](IMAGES/FIG07.jpg)
 
-## EXECUTE UNIT
+## Execute unit
 
 ![TESTBENCHES](IMAGES/FIG11.jpg)
 
