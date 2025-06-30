@@ -216,6 +216,59 @@ The testbench includes **six unit tests**, each targeting specific decode logic 
 
 ![TESTBENCHES](IMAGES/FIG07.jpg)
 
+# 📊 Signal Analysis Summary
+
+This README documents important signals involved in the instruction execution pipeline, their descriptions, and their relevance across multiple test cases for debugging and verification.
+
+| **Signal Category** | **Signal Name**             | **Description**                                                                 |
+|---------------------|-----------------------------|---------------------------------------------------------------------------------|
+| Clock and Reset     | clk_i                       | System clock (100 MHz, 10 ns period)                                           |
+|                     | rst_i                       | Active-high reset signal                                                       |
+| Fetch Stage         | fetch0_valid_i              | Indicates valid instruction in fetch0 stage                                    |
+|                     | fetch0_instr_i              | Instruction data for fetch0                                                    |
+|                     | fetch0_pc_i                 | Program counter for fetch0 instruction                                         |
+|                     | fetch0_instr_exec_i         | Indicates fetch0 instruction is executable (ALU)                               |
+|                     | fetch0_instr_lsu_i          | Indicates fetch0 instruction is LSU (load/store)                               |
+|                     | fetch0_instr_branch_i       | Indicates fetch0 instruction is a branch                                       |
+|                     | fetch0_instr_rd_valid_i     | Indicates fetch0 instruction writes to a register                              |
+|                     | fetch1_valid_i              | Indicates valid instruction in fetch1 stage (dual issue)                       |
+|                     | fetch1_instr_i              | Instruction data for fetch1                                                    |
+|                     | fetch1_pc_i                 | Program counter for fetch1 instruction                                         |
+|                     | fetch1_instr_exec_i         | Indicates fetch1 instruction is executable (ALU)                               |
+|                     | fetch1_instr_rd_valid_i     | Indicates fetch1 instruction writes to a register                              |
+| Pipeline Outputs    | exec0_opcode_valid_o        | Indicates valid opcode issued to EXEC0 unit                                    |
+|                     | opcode0_opcode_o            | Opcode issued to EXEC0 unit                                                    |
+|                     | opcode0_pc_o                | PC of opcode issued to EXEC0                                                   |
+|                     | opcode0_rd_idx_o            | Destination register index for EXEC0                                           |
+|                     | opcode0_ra_operand_o        | Operand A for EXEC0                                                            |
+|                     | opcode0_rb_operand_o        | Operand B for EXEC0                                                            |
+|                     | exec1_opcode_valid_o        | Indicates valid opcode issued to EXEC1 unit                                    |
+|                     | opcode1_opcode_o            | Opcode issued to EXEC1 unit                                                    |
+|                     | opcode1_rd_idx_o            | Destination register index for EXEC1                                           |
+|                     | lsu_opcode_valid_o          | Indicates valid opcode issued to LSU unit                                      |
+|                     | lsu_opcode_opcode_o         | Opcode issued to LSU unit                                                      |
+|                     | lsu_opcode_rd_idx_o         | Destination register index for LSU                                             |
+|                     | lsu_opcode_ra_operand_o     | Operand A for LSU (base address)                                               |
+| Writeback           | writeback_exec0_value_i     | Writeback value from EXEC0 unit                                                |
+|                     | writeback_exec1_value_i     | Writeback value from EXEC1 unit                                                |
+|                     | writeback_mem_valid_i       | Indicates valid memory writeback                                               |
+|                     | writeback_mem_value_i       | Writeback value from memory (LSU)                                              |
+| Branch Control      | branch_request_o            | Indicates a branch request                                                     |
+|                     | branch_pc_o                 | Target PC for branch                                                           |
+|                     | branch_exec0_request_i      | Branch request from EXEC0                                                      |
+|                     | branch_exec0_is_taken_i     | Indicates branch taken for EXEC0                                               |
+|                     | branch_exec0_pc_i           | Branch target PC from EXEC0                                                    |
+|                     | branch_csr_request_i        | CSR branch request (e.g., for interrupts)                                      |
+|                     | branch_csr_pc_i             | CSR branch target PC                                                           |
+|                     | branch_csr_priv_i           | Privilege level for CSR branch                                                 |
+| Pipeline Control    | exec0_hold_o                | Indicates EXEC0 pipeline hold                                                  |
+|                     | lsu_stall_i                 | LSU stall input                                                                |
+|                     | interrupt_inhibit_o         | Indicates interrupts are inhibited                                             |
+| TRACE_SIM           | dut.dbg_inst_str            | Decoded instruction string (ASCII)                                             |
+|                     | dut.dbg_inst_ra             | Source register A value                                                        |
+|                     | dut.dbg_inst_rd             | Destination register value                                                     |
+| Register File       | dut.register_file_inst.rf[0:31] | Register file contents (x0 to x31)                                           |
+
 
 ![TESTBENCHES](IMAGES/FIG12.png)
 
