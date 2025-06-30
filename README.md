@@ -37,7 +37,7 @@
 | 2025-07-01 |   Day 9 | Execute unit            | yes           |
 | 2025-07-02 |  Day 10 | CSR                     | no            |
 | 2025-07-03 |  Day 11 | MMU                     | no            |
-| 2025-07-04 |  Day 12 | Top (RISCV_CORE)        | yes           |
+| 2025-07-04 |  Day 12 | Top (RISCV_CORE)        | no           |
 
 ## Architecture Planning
 ![Processor Architecture](IMAGES/FIG01.png)
@@ -310,7 +310,7 @@ Following 29 testcases were tested:
 ### 🔧 Prerequisites
 - iVerilog
 - GTKWave
-
+- verilator
 
 ### 🔨 Build & Run
 
