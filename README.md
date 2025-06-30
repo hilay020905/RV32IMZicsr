@@ -24,21 +24,21 @@
 
 # 📅 2-Week Development Plan
 
-| **Date**   | **Day** | **Module / Task**       | 
-| ---------- | ------: | ----------------------- | 
-| 2025-06-23 |   Day 1 | Architecture Planning   | 
-| 2025-06-24 |   Day 2 | Next PC Logic           | 
-| 2025-06-25 |   Day 3 | Fetch unit              | 
-| 2025-06-26 |   Day 4 | Decode unit + Decoder   | 
-| 2025-06-27 |   Day 5 | ALU DIV MUL             |
-| 2025-06-28 |   Day 6 | LSU                     |
-| 2025-06-29 |   Day 7 | Issue unit + Pipe ctrl  | 
-| 2025-06-30 |   Day 8 | Execute unit            | 
-| 2025-07-01 |   Day 9 | L1 CACHE                | 
-| 2025-07-02 |  Day 10 | CSR Unit                | 
-| 2025-07-03 |  Day 11 | MMU                     | 
-| 2025-07-04 |  Day 12 | Forwarding & Stalling   | 
-| 2025-07-05 |  Day 13 | Testbenches (Verilator) | 
+| **Date**   | **Day** | **Module / Task**       | **Testbench** |
+| ---------- | ------: | ----------------------- |---------------| 
+| 2025-06-23 |   Day 1 | Architecture Planning   | no            |
+| 2025-06-24 |   Day 2 | Next PC Logic           | yes           |
+| 2025-06-25 |   Day 3 | Fetch unit              | yes           |
+| 2025-06-26 |   Day 4 | Decode unit + Decoder   | yes           |
+| 2025-06-27 |   Day 5 | ALU DIV MUL             | yes           |
+| 2025-06-28 |   Day 6 | LSU                     | yes           |
+| 2025-06-29 |   Day 7 | Register file           | no            |
+| 2025-06-30 |   Day 8 | Issue unit + Pipe ctrl  | yes           |
+| 2025-07-01 |   Day 9 | Execute unit            | yes           |
+| 2025-07-02 |  Day 10 | CSR                     | no            |
+| 2025-07-03 |  Day 11 | MMU                     | no            |
+| 2025-07-04 |  Day 12 | L1 CACHE                | no            |
+| 2025-07-05 |  Day 13 | Top (RISCV_CORE)        | yes           |
 
 ## Architecture Planning
 ![Processor Architecture](IMAGES/FIG01.png)
