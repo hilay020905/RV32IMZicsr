@@ -306,6 +306,8 @@ Following 29 testcases were tested:
 
 ![TESTBENCHES](IMAGES/FIG13.png)
 
+![TESTBENCHES](IMAGES/FIG14.png)
+
 ### 🔧 Prerequisites
 - iVerilog
 - GTKWave
