@@ -22,7 +22,7 @@
 
 ---
 
-# 📅 2-Week Development Plan
+# 📅 12 Days Development Plan
 
 | **Date**   | **Day** | **Module / Task**       | **Testbench** |
 | ---------- | ------: | ----------------------- |---------------| 
@@ -37,8 +37,7 @@
 | 2025-07-01 |   Day 9 | Execute unit            | yes           |
 | 2025-07-02 |  Day 10 | CSR                     | no            |
 | 2025-07-03 |  Day 11 | MMU                     | no            |
-| 2025-07-04 |  Day 12 | L1 CACHE                | no            |
-| 2025-07-05 |  Day 13 | Top (RISCV_CORE)        | yes           |
+| 2025-07-04 |  Day 12 | Top (RISCV_CORE)        | yes           |
 
 ## Architecture Planning
 ![Processor Architecture](IMAGES/FIG01.png)
