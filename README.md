@@ -318,6 +318,7 @@ Following 29 testcases were tested:
 # Clone the repository
 git clone https://github.com/hilay0200905/RV32IMZicsr.git
 cd RV32IMZicsr
+```
 
 👨‍💻 Author
 Hilay Patel
