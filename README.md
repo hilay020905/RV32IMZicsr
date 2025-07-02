@@ -318,3 +318,15 @@ Following 29 testcases were tested:
 # Clone the repository
 git clone https://github.com/hilay0200905/RV32IMZicsr.git
 cd RV32IMZicsr
+
+👨‍💻 Author
+Hilay Patel
+
+🎓 [Indian institue of technology, Tirupati]
+
+📧 ee23b066@iittp.ac.in
+
+🌐 [LinkedIn Profile: www.linkedin.com/in/hilay-patel-84a052286]
+
+Thank you for exploring this project! Feel free to fork, use, or contribute. PRs are welcome! 🙌
+
