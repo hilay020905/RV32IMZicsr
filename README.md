@@ -329,5 +329,5 @@ Hilay Patel
 
 🌐 [LinkedIn Profile: www.linkedin.com/in/hilay-patel-84a052286]
 
-Thank you for exploring this project! Feel free to fork, use, or contribute. PRs are welcome! 🙌
+Thank you for exploring this project! Feel free to fork, use, or contribute. PRs are welcome!🙌
 
