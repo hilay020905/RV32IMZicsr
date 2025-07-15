@@ -14,7 +14,7 @@
 - 🔁 **Pipeline**:
   - 64-bit instruction fetch
   - 32-bit data memory access
-  - Dual ALUs + LSU + out-of-pipeline Divider
+  - Dual ALUs + LSU + out-of-pipeline Divider.
 - 🧠 **Branch Prediction**:
   - Gshare or Bimodal Predictor (configurable)
   - Branch Target Buffer (BTB) + Return Address Stack (RAS)
